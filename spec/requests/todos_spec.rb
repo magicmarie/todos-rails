@@ -8,7 +8,7 @@ RSpec.describe 'Todos API', type: :request do
     before { get '/todos' }
 
     it 'returns todos' do
-      expect(json).not_to must_be_empty
+      expect(json).not_to be_empty
       expect(json.size).to eq(5)
     end
 
@@ -68,7 +68,7 @@ RSpec.describe 'Todos API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-            .to match(/Validation error: Created by can't be blank/)
+            .to match(/Validation failed: Created by can't be blank/)
       end
     end
   end
